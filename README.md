@@ -6,8 +6,8 @@
 [Github repo for Server](https://github.com/Porgramming-Hero-web-course/complete-website-server-ShahbajKhan).
 [Heroku Repo for Server](https://guarded-dawn-98055.herokuapp.com/).
 
-[Live link-firebase](https://evergreen-shop.web.app/)
-[Backend Server](https://strawberry-pie-51996.herokuapp.com/)
+[Live link-firebase](https://mama-jaben.web.app/)
+
 
 ## Available Features
 1) User can login with google facebook since the app has firebase authentication. 
