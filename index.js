@@ -15,7 +15,7 @@ app.use(express.json());
 var serviceAccount = require("./.configs/mama-jaben-firebase-adminsdk-vpoe2-df6bae54dd.json");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+    credential: admin.credential.cert(serviceAccount)
 });
 
 
@@ -80,12 +80,12 @@ client.connect(err => {
             })
     });
 
-    app.get('/vehicles/:id', (req,res)=>{
-        vehicleCollection.find({_id:ObjectID(req.params.id)})
-        .toArray((err, documents)=>{
-            res.send(documents[0])
-            
-        })
+    app.get('/vehicles/:id', (req, res) => {
+        vehicleCollection.find({ _id: ObjectID(req.params.id) })
+            .toArray((err, documents) => {
+                res.send(documents[0])
+
+            })
     })
     app.post('/bookVehicle', (req, res) => {
         const bookVehicle = req.body;
@@ -95,7 +95,7 @@ client.connect(err => {
             })
     });
 
-    app.get('/bookings', (req, res)=>{
+    app.get('/bookings', (req, res) => {
         const bearer = req.headers.authorization;
         if (bearer && bearer.startsWith('Bearer ')) {
             const idToken = bearer.split(' ')[1];
@@ -130,23 +130,30 @@ client.connect(err => {
             })
     });
 
-    app.patch('/update/:id',(req,res)=>{
-        bookingCollection.updateOne({_id: ObjectID(req.params.id)},
-         {
-          $set:{status:req.body.status}
-         })
-         .then (result=>{
-            res.send(result.modifiedCount>0)
-         })
-      })
+    app.get("/adminCheck/:email", (req, res) => {
+        // console.log(req.params.email);
+        adminCollection.find({ email: req.params.email }).toArray((err, items) => {
+            res.send(items.length > 0);
+        });
+    });
+
+    app.patch('/update/:id', (req, res) => {
+        bookingCollection.updateOne({ _id: ObjectID(req.params.id) },
+            {
+                $set: { status: req.body.status }
+            })
+            .then(result => {
+                res.send(result.modifiedCount > 0)
+            })
+    });
 
     app.delete('/deleteVehicle/:id', (req, res) => {
         const id = ObjectID(req.params.id);
         console.log("DELETING", id);
         vehicleCollection.findOneAndDelete({ _id: id })
-        .then((result)=>{
-            res.send(result.deletedCount > 0);
-        })
+            .then((result) => {
+                res.send(result.deletedCount > 0);
+            })
     })
 });
 
