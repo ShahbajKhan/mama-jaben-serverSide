@@ -2,8 +2,9 @@
 ## Node-mongo-react
 ### CRUD System
 
-[Github repo for client](https://github.com/Porgramming-Hero-web-course/full-stack-client-ShahbajKhan).
-[Github repo for Server](https://github.com/Porgramming-Hero-web-course/full-stack-server-ShahbajKhan).
+[Github repo for client](https://github.com/Porgramming-Hero-web-course/complete-website-client-ShahbajKhan).
+[Github repo for Server](https://github.com/Porgramming-Hero-web-course/complete-website-server-ShahbajKhan).
+[Heroku Repo for Server](https://guarded-dawn-98055.herokuapp.com/).
 
 [Live link-firebase](https://evergreen-shop.web.app/)
 [Backend Server](https://strawberry-pie-51996.herokuapp.com/)
